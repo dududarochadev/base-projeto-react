@@ -12,14 +12,14 @@ const ThemeContext = createContext({} as IThemeContextData);
 
 export const useAppThemeContext = () => {
   return useContext(ThemeContext);
-}
-
-type Props = {
-    children?: React.ReactNode,
 };
 
-export const AppThemeProvider: React.FC<Props> = ( {children} ) => {
-  const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
+type Props = {
+  children?: React.ReactNode,
+};
+
+export const AppThemeProvider: React.FC<Props> = ({ children }) => {
+  const [themeName, setThemeName] = useState<'light' | 'dark'>('dark');
 
   const toggleTheme = useCallback(() => {
     setThemeName(oldThemeName => oldThemeName === 'light' ? 'dark' : 'light');
@@ -31,7 +31,6 @@ export const AppThemeProvider: React.FC<Props> = ( {children} ) => {
     return DarkTheme;
   }, [themeName]);
 
-
   return (
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
       <ThemeProvider theme={theme}>
@@ -41,4 +40,4 @@ export const AppThemeProvider: React.FC<Props> = ( {children} ) => {
       </ThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};
