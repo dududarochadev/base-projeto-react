@@ -23,23 +23,23 @@ export const LayoutBase: React.FC<Props> = ({ children, titulo, barraDeFerrament
           </IconButton>}
 
         <Typography
-          whiteSpace='nowrap'
-          overflow='hidden'
-          textOverflow='ellipsis'
+          noWrap
           variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
         >
           {titulo}
         </Typography>
       </Box>
 
-      {barraDeFerramentas &&
+      {
+        barraDeFerramentas &&
         <Box>
           {barraDeFerramentas}
-        </Box>}
+        </Box>
+      }
 
       <Box flex={1} overflow='auto'>
         {children}
       </Box>
-    </Box>
+    </Box >
   );
 };
