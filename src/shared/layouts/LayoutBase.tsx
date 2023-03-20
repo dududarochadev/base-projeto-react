@@ -15,7 +15,7 @@ export const LayoutBase: React.FC<Props> = ({ children, titulo, barraDeFerrament
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
-    <Box height='100%' display='flex' flexDirection='column' gap={1}>
+    <Box height='100%' display='flex' flexDirection='column' gap={1} marginLeft='25%'>
       <Box padding={1} display='flex' alignItems='center' gap={1} height={theme.spacing(smDown ? 6 : mdDown ? 8 : 12)}>
         {smDown &&
           <IconButton onClick={toggleDrawerOpen}>
